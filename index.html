@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="width:100px;height:100px;background-color:red;"></div>
+</body>
+<script type="text/javascript">
+    var worker = new Worker('worker.js');
+    worker.postMessage(10500);
+    worker.onmessage = function (event) {
+        var data = event.data;
+        console.log(data)
+    };
+    worker.οnerrοr = function (event) {
+        console.log(event.fileName, event.lineo, event.message);
+    }
+</script>
+
+</html>
